@@ -1,3 +1,12 @@
+/*****************************************************************************
+*    Title: Stylestage source code
+*    Author:  Stephanie Eckles
+*    Date: 2013
+*    Code version: 2.0
+*    Availability: https://stylestage.dev/styles/fresh/#guidelines
+I wrote this css file after looking at the  page on stylestage: https://stylestage.dev/styles/fresh/#guidelines.
+****************************************************************************/
+
 :root{
   --um-blue: #00274C;     
   --um-maize: #FFCB05;    
@@ -14,9 +23,11 @@
   --font-size-h4: 1.35rem;
   --font-size-text: 1.15rem;
   --border-radius: 1rem;
+  /* # Stephanie Eckles suggested these two variables for the header logo */
   --logomark-height: 3em;
   --logomark-padding: 0 1em;
 }
+
 
 .skip-to-main {
   position: absolute;
@@ -30,16 +41,14 @@
 
 .skip-to-main:focus,
 .skip-to-main:focus-visible {
-  left: max(1rem, env(safe-area-inset-left));
-  top:  max(1rem, env(safe-area-inset-top));
+  left:1rem;
+  top:1rem;
 }
 
 
 header{
   display: grid;
   grid-template-columns: auto 1fr;       
-  grid-template-areas: "logo title"
-  "nav nav";
   background:var(--um-blue); 
   color: var(--um-maize);
 }
@@ -48,6 +57,9 @@ header h1 {
   display: inline-grid;
   min-height: var(--logomark-height);
   place-content: center;
+  grid-column: 2;        
+  grid-row: 1;           
+  margin: 0;
 }
 
 header img{
@@ -57,6 +69,8 @@ header img{
 
 nav{ 
   grid-area:nav; 
+  grid-column: 1 / -1;  
+  grid-row: 2;      
 }
 
 nav ul{
@@ -100,6 +114,7 @@ ul {
     unicode-bidi: isolate;
 }
 
+/* # Stephanie Eckles suggested using flexbox for article sections */
 article section {
   display: flex;
   flex-direction: column;
@@ -121,7 +136,9 @@ article,
 #styles {
   padding: 1rem;
 }
+/* # Stephanie Eckles suggested using flexbox for article sections ends */
 
+/* # Stephanie Eckles suggested these heading styles but I also made changes myself to suit my website design */
 h1,
 h2,
 h3,
@@ -179,6 +196,7 @@ iframe{
   display: block;          
 }
 
+/* # Stephanie Eckles suggested these list styles */
 ol {
     display: block;
     list-style-type: decimal;
@@ -187,6 +205,7 @@ ol {
     padding-inline-start: 40px;
     unicode-bidi: isolate;
 }
+/* # Stephanie Eckles suggested these list styles ends*/
 
 .options{
   display:grid;
@@ -206,6 +225,26 @@ ol {
   display: contents;
 }
 
+.resource-section{
+  background:white; 
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.resource-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.resource-card{
+  border:1px solid;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
 .page-footer{
   background-color: var(--um-blue);
   color: var(--um-maize);
@@ -213,7 +252,9 @@ ol {
   padding: 1rem;
   font-size: 0.9rem;
 }
+
 .page-footer a{
   color: var(--hyperlink-color);
   font-weight: 600;
 }
+
